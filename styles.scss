@@ -1,0 +1,177 @@
+@mixin reset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+@mixin flexbox {
+  display: -o-flex;
+  display: -ms-flex;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+}
+
+body {
+  @include reset;
+  height: 100vh;
+  background-color: #201E29;
+  overflow: hidden;
+
+  * {
+    @include reset;
+    font-family: "Red Hat Text", sans-serif;
+    font-weight: 700;
+  }
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
+}
+
+.title {
+  margin: 70px 0 50px 0;
+  color: #FFFFFF;
+  font-size: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+
+  @media (max-width: 400px) {
+    margin: 40px 0 20px 0;
+    font-size: 18px;
+  }
+}
+
+.container {
+  @include flexbox;
+  justify-content: center;
+
+  @media (max-width: 600px) {
+    transform: scale(0.8);
+  }
+
+  @media (max-width: 500px) {
+    transform: scale(0.65);
+  }
+
+  @media (max-width: 400px) {
+    transform: scale(0.7);
+    flex-wrap: wrap;
+  }
+}
+
+.timer {
+  @include flexbox;
+  flex-direction: column;
+  align-items: center;
+
+  + .timer {
+    margin-left: 25px;
+  }
+
+  @media (max-width: 400px) {
+    &:nth-child(odd) {
+      margin-left: 0;
+    }
+
+    &:nth-child(-n+2) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.number {
+  @include flexbox;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 130px;
+  height: 120px;
+  border-radius: 8px;
+  background-color: #34364F;
+  color: #F85E85;
+  box-shadow: 0 7px 2px 0 rgba(26, 26, 34, 0.8);
+  overflow: hidden;
+
+  &::before, &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #0E0E1F;
+    border-radius: 50%;
+  }
+
+  &::before {
+    left: -5px;
+  }
+
+  &::after {
+    right: -5px;
+  }
+
+  * {
+    font-size: 64px;
+  }
+
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #1A1A22;
+    opacity: 0.4;
+  }
+}
+
+.label {
+  margin-top: 15px;
+  color: #8484A6;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.social-media {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 1;
+
+  * {
+    text-decoration: none;
+    color: #8484A6;
+    font-size: 22px;
+    transition: 0.2s color;
+
+    &:hover {
+      color: #F85E85;
+    }
+  }
+
+  a + a {
+    margin-left: 10px;
+  }
+}
