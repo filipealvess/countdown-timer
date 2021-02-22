@@ -1,5 +1,5 @@
 # Countdown Timer
-Projeto criado para praticar os estudos de Sass, pré-processador CSS.
+Projeto criado para praticar os estudos de Sass, pré-processador CSS (clique [aqui](https://filipealvess.github.io/countdown-timer) para visualizar).
 
 O layout base do projeto foi retirado do site [Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-)
 
